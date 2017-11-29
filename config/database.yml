@@ -13,14 +13,14 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: kadai-tasklist_production
   username: kadai-tasklist
   password: <%= ENV['KADAI-TASKLIST_DATABASE_PASSWORD'] %>
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  <<: adapter
+  <<: *default
   database: kadai-tasklist_development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -48,8 +48,4 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: kadai-tasklist_production
-  username: kadai-tasklist
-  password: <%= ENV['KADAI-TASKLIST_DATABASE_PASSWORD'] %>
+
