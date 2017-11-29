@@ -19,7 +19,7 @@ production:
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  <<: *default
+  <<: adapter
   database: kadai-tasklist_development
 
 # Warning: The database defined as "test" will be erased and
