@@ -9,7 +9,6 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
-
 default: &default
   adapter: mysql2
   encoding: utf8
@@ -18,18 +17,9 @@ default: &default
   password:
   socket: /var/run/mysqld/mysqld.sock
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: kadai-tasklist_production
-  username: kadai-tasklist
-  password: <%= ENV['KADAI-TASKLIST_DATABASE_PASSWORD'] %>
-
 development:
   <<: *default
   database: kadai-tasklist_development
-
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -57,4 +47,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-
+production:
+  <<: *default
+  database: kadai-tasklist_production
+  username: kadai-tasklist
+  password: <%= ENV['KADAI-TASKLIST_DATABASE_PASSWORD'] %>
