@@ -16,18 +16,18 @@
 <% if logged_in? %>
 
             <li>
-<%= link_to 'Users' users_path %>
+<%= link_to 'Users', users_path %>
 </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 <%= current_user.name %>
  <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li>
+                <li>
 <%= link_to 'My profile', user_path(current_user) %>
 </li>
                 <li role="separator" class="divider"></li>
-                <li>Lohout</li>
+                <li>Logout</li>
               </ul>
             </li>
             
@@ -40,15 +40,14 @@
 <%= link_to 'Login', login_path %>
 </li>
 
-            <li>
+<% end %>
+
+ <li>
 <%= link_to 'Logout', logout_path, method: :delete %>
 </li>
 
-<% end %>
-
         </ul>
       </div>
-          <li><a href="#">Login</a></li>
         </ul>
       </div>
     </div>
